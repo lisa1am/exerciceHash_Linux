@@ -2,7 +2,8 @@
 
 CPPFLAGS=-I../interfaces
 BIN_DIR=../bin
-COMPONENTS_NEEDED=NaiveHashComponent
+COMPONENTS_NEEDED=Hash
+COMPONENTS_DIRNAMES=NaiveHashComponent
 COMPONENTS_DIR=../lib
 COMPONENTS_FILES=${COMPONENTS_NEEDED:%=${COMPONENTS_DIR}/lib%.so}
 LD_COMPONENTS=${COMPONENTS_NEEDED:%=-l%}
@@ -15,14 +16,14 @@ include ../gcc.mk
 all: ${COMPONENTS_FILES} ${EXE}
 
 ${COMPONENTS_FILES}:
-	for component in ${COMPONENTS_NEEDED}; do \
+	for component in ${COMPONENTS_DIRNAMES}; do \
 		cd ../$$component; \
 		${MAKE} install;  \
 	done
 
 clean:
 	rm -f ${OBJS} ${EXE} ${COMPONENTS_FILES}; \
-	for component in ${COMPONENTS_NEEDED}; do \
+	for component in ${COMPONENTS_DIRNAMES}; do \
                 cd ../$$component; \
                 ${MAKE} clean;  \
         done; \

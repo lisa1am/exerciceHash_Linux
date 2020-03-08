@@ -3,7 +3,7 @@ CPPFLAGS=-I../interfaces
 
 COMPOSANT = NaiveHashComponent
 
-LIBSO = lib${COMPOSANT}.so
+LIBSO = libHash.so
 LIBSO_OBJS = ${COMPOSANT}.o
 DESTINATION_DIR = ../lib
 DESTINATION_LIBSO = ${DESTINATION_DIR}/${LIBSO}
