@@ -3,6 +3,8 @@
 #define SHA256_H
 #include <string>
 
+#define SHA256_VERSION_STR "1,0,0,0"
+
 class SHA256
 {
 protected:
@@ -26,7 +28,6 @@ protected:
 	uint32 m_h[8];
 };
 
-std::string hash(std::string input);
 
 #define SHA2_SHFR(x, n)    (x >> n)
 #define SHA2_ROTR(x, n)   ((x >> n) | (x << ((sizeof(x) << 3) - n)))

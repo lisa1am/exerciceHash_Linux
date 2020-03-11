@@ -1,6 +1,7 @@
 #include <cstring>
 #include <fstream>
 #include "sha256.h"
+#include "hash.h"
 
 const unsigned int SHA256::sha256_k[64] = //UL = uint32
 {0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
@@ -105,7 +106,7 @@ void SHA256::final(unsigned char *digest)
 		< (m_len % SHA224_256_BLOCK_SIZE)));
 	len_b = (m_tot_len + m_len) << 3;
 	pm_len = block_nb << 6;
-	memset(m_block + m_len, 0, pm_len - m_len);
+memset(m_block + m_len, 0, pm_len - m_len);
 	m_block[m_len] = 0x80;
 	SHA2_UNPACK32(len_b, m_block + pm_len - 4);
 	transform(m_block, block_nb);
@@ -129,4 +130,12 @@ std::string hash(std::string input)
 	for (int i = 0; i < SHA256::DIGEST_SIZE; i++)
 		sprintf(buf+i*2, "%02x", digest[i]);
 	return std::string(buf);
+}
+
+std::string hashName(){
+	return "SHA256";
+}
+
+std::string version(){
+	return SH256_VERSION_STR;
 }
