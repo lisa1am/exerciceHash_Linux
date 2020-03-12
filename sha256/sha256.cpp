@@ -137,5 +137,5 @@ std::string hashName(){
 }
 
 std::string version(){
-	return SH256_VERSION_STR;
+	return "1.0.0.0"; 
 }
