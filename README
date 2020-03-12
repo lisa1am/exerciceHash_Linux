@@ -1,0 +1,19 @@
+- deux dossiers ont été créés : /sha3 et /sha256
+- chacun des dossiers contient : .cpp  .h et Makefile
+- les MakeFile ont été fait de sorte à générer une librairie libHash.so quelque soit l'algorithme
+- le main.cpp n'a pas été modifié
+- un passage de paramètre dynamique a été mis en place à travers le Makefile pour spécifier l'algorithme que l'ont veut éxécuter
+
+
+MANUEL D'ÉXÉCUTION :
+ATTENTION : penser à cleaner avant de relancer ( avec : make clean )
+
+
+1) Algo Naive :
+    make COMPONENTS_DIRNAMES=NaiveHashComponent
+2) Algo sha3 :
+    make COMPONENTS_DIRNAMES=sha3
+3) Algo sha256 :
+    make COMPONENTS_DIRNAMES=sha256
+    
+    
